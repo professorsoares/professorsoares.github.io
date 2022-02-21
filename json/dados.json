@@ -8,7 +8,7 @@
     {
       "name" : "Molecule Man",
       "age" : 29,
-      "secretIdentity" : "Dan Jukes",
+      "secretIdentity" : "Bruno Soares",
       "powers" : [
         "Radiation resistance",
         "Turning tiny",
@@ -18,7 +18,7 @@
     {
       "name" : "Madame Uppercut",
       "age" : 39,
-      "secretIdentity" : "Jane Wilson",
+      "secretIdentity" : "Savanne Soares",
       "powers" : [
         "Million tonne punch",
         "Damage resistance",
@@ -28,7 +28,7 @@
     {
       "name" : "Eternal Flame",
       "age" : 1000000,
-      "secretIdentity" : "Unknown",
+      "secretIdentity" : "Marcus Paulo",
       "powers" : [
         "Immortality",
         "Heat Immunity",
