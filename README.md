@@ -92,6 +92,7 @@ Consultor de Automação e Meloria de Processos.
 
 ## Cursos Completos
 * Curso Git e Github para iniciantes (Udemy / [Certificado](#))
+* Leading SAFe(Scaled Agile Framework) (GCria)
 * Demais cursos (Microsoft / [Certificado](#))
 
 ## Certificados
