@@ -1,1 +1,67 @@
-teste
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Copa do Mundo 2022</title>
+</head>
+
+<body>
+    Somente testes
+
+    <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+
+    <script>
+        // Import the functions you need from the SDKs you need
+        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+        
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyBfSJmRW1-F1VM1_D2xJpZRCIO10-O1jgQ",
+            authDomain: "minhascompras-4e83e.firebaseapp.com",
+            projectId: "minhascompras-4e83e",
+            storageBucket: "minhascompras-4e83e.appspot.com",
+            messagingSenderId: "241935214639",
+            appId: "1:241935214639:web:f5039a769057ba9bfafeda",
+            measurementId: "G-VHM761SBDC"
+        };
+        
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // export default app
+        const auth = firebase.auth();
+
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        db = firebase.firestore();
+
+        setTimeout(function(){
+            auth.signInWithPopup(provider);
+        }, 3000)
+
+        auth.onAuthStateChanged((val)=>{
+            if(val){
+                alert('Logado com sucesso!');
+            }
+        })
+
+        db.collection('estoque').onSnapshot(function(data){
+            data.docs.map(function(val){
+                console.log("---------------------------------------");
+                console.log("Nome: ", val.data().nome, 
+                    "\nMedida: ", val.data().medida,
+                    "\nPreço: ", val.data().preco,
+                    "\nPreço Total: ", val.data().preco_total
+                    );
+            
+            })
+            
+        })
+    
+    </script>    
+</body>
+
+</html>
