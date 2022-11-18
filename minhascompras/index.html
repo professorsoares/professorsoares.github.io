@@ -35,6 +35,15 @@
         firebase.initializeApp(firebaseConfig);
         // export default app
         const auth = firebase.auth();
+        var user = auth.currentUser;
+
+        if (!user) {
+            auth.onAuthStateChanged((val)=>{
+                if(val){
+                    alert('Logado com sucesso!');
+                }
+            })
+        }
 
         const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -44,11 +53,6 @@
             auth.signInWithPopup(provider);
         }, 3000)
 
-        auth.onAuthStateChanged((val)=>{
-            if(val){
-                alert('Logado com sucesso!');
-            }
-        })
 
         db.collection('estoque').onSnapshot(function(data){
             data.docs.map(function(val){
@@ -56,15 +60,15 @@
                 console.log("Nome: ", val.data().nome, 
                     "\nMedida: ", val.data().medida,
                     "\nPreço: ", val.data().preco,
-                    "\nTipo Produto: ", val.data().produto_tipo,
                     "\nPreço Total: ", val.data().preco_total
                     );
-                const element = document.getElementById('br-01')
-                element.innerHTML = "Nome: ", val.data().nome, 
-                    "\nMedida: ", val.data().medida,
-                    "\nPreço: ", val.data().preco,
-                    "\nTipo Produto: ", val.data().produto_tipo,
-                    "\nPreço Total: ", val.data().preco_total;
+                
+                const element = document.getElementById('br-01');
+                element.innerHTML = "Nome: "+ val.data().nome+ 
+                    "<br>Medida: "+ val.data().medida+
+                    "<br>Preço: "+ val.data().preco+
+                    "<br>Tipo Produto: "+ val.data().produto_tipo+
+                    "<br>Preço Total: "+ val.data().preco_total;
 
             })
             
