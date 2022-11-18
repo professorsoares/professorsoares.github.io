@@ -6,7 +6,9 @@
 </head>
 
 <body>
-    Somente testes
+    Somente testes 2
+
+    <p class="score" id="br-01">Itens</p>
 
     <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
@@ -57,7 +59,13 @@
                     "\nTipo Produto: ", val.data().produto_tipo,
                     "\nPreço Total: ", val.data().preco_total
                     );
-            
+                const element = document.getElementById('br-01')
+                element.innerHTML = "Nome: ", val.data().nome, 
+                    "\nMedida: ", val.data().medida,
+                    "\nPreço: ", val.data().preco,
+                    "\nTipo Produto: ", val.data().produto_tipo,
+                    "\nPreço Total: ", val.data().preco_total;
+
             })
             
         })
